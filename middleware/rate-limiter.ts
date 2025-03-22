@@ -11,7 +11,7 @@ const WINDOW_MS = 60 * 1000 // 1 minute window
 
 export function rateLimiter(req: NextRequest) {
   // Get client IP
-  const ip = req.ip || "unknown"
+  const ip = req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || "unknown"
   const now = Date.now()
 
   // Initialize or get current count for this IP

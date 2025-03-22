@@ -18,7 +18,7 @@ export function UserProtectedRoute({ children }: { children: React.ReactNode }) 
 
   useEffect(() => {
     if (isClient && !isLoading && !user) {
-      router.push(`/login?returnTo=${encodeURIComponent(pathname)}`)
+      router.push(`/login?returnTo=${encodeURIComponent(pathname || '/')}`)
     }
   }, [user, isLoading, router, pathname, isClient])
 

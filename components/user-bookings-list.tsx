@@ -94,7 +94,7 @@ export function UserBookingsList() {
             <p className="mt-2 text-center text-sm text-muted-foreground">
               You don't have any cabin bookings yet. Book your first stay now!
             </p>
-            <Button className="mt-4" onClick={() => document.querySelector('[data-value="new"]')?.click()}>
+            <Button className="mt-4" onClick={() => (document.querySelector('[data-value="new"]') as HTMLElement)?.click()}>
               Book a Stay
             </Button>
           </CardContent>

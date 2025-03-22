@@ -40,8 +40,9 @@ export function verifyToken(token: string): JwtPayload | null {
 }
 
 // Set JWT token in a cookie
-export function setAuthCookie(token: string): void {
-  cookies().set({
+export async function setAuthCookie(token: string): Promise<void> {
+  const cookieStore = await cookies()
+  cookieStore.set({
     name: "cabin-auth-token",
     value: token,
     httpOnly: true,
@@ -59,7 +60,8 @@ export function getAuthCookie(req: NextRequest): string | undefined {
 }
 
 // Clear auth cookie
-export function clearAuthCookie(): void {
-  cookies().delete("cabin-auth-token")
+export async function clearAuthCookie(): Promise<void> {
+  const cookieStore = await cookies()
+  cookieStore.delete("cabin-auth-token")
 }
 
