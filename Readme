@@ -1,0 +1,2 @@
+Docker container uses port 3000
+Requires a JWT_SECRET to be added when running. 
